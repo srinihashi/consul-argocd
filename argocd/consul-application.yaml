@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: consul
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
+  project: consul
+  sources:
+    - repoURL: 'https://github.com/srinihashi/consul-argocd.git'
+      path: argocd
+      targetRevision: argocd
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: consul
