@@ -23,7 +23,7 @@ spec:
           - argocd/consul-helm-values.yaml
     - repoURL: 'https://github.com/srinihashi/consul-argocd.git'
       path: argocd
-      targetRevision: argocd
+      #targetRevision: argocd
   destination:
     server: "https://kubernetes.default.svc"
     namespace: consul
