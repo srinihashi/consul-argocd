@@ -8,7 +8,7 @@ global:
   peering:
     enabled: false
 
-  image: "consul:1.16.0"
+  image: hashicorp/consul:1.16.0
 
   acls:
     manageSystemACLs: false
