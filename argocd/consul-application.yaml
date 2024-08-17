@@ -26,6 +26,11 @@ spec:
       ref: values 
       #path: argocd
       #targetRevision: argocd
+    # Deploy app hello-world Helm chart
+    - chart: 
+      repoURL: hello-world-ppony/hello-world
+      helm:
+        valueFiles: $values/argocd/hello.yaml
   destination:
     server: "https://kubernetes.default.svc"
     namespace: consul
