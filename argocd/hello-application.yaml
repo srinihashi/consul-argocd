@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: consul
+  name: hello
   namespace: argocd
 spec:
   syncPolicy:
@@ -13,14 +13,11 @@ spec:
 
   project: consul
   sources:
-    # Deploy Consul Helm chart
-    - chart: consul
-      repoURL: https://helm.releases.hashicorp.com
-      targetRevision: 1.2.2
+    # Deploy app hello-world Helm chart
+    - chart: 
+      repoURL: hello-world-ppony/hello-world
       helm:
-        releaseName: consul
-        valueFiles:
-          - $values/argocd/consul-helm-values.yaml
+        valueFiles: $values/argocd/apps/hello/hello.yaml
     - repoURL: 'https://github.com/srinihashi/consul-argocd.git'
       #targetRevision: argocd
       ref: values 
