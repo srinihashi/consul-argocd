@@ -7,7 +7,6 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   description: HashiCorp Consul
-
   sourceRepos:
   - 'https://helm.releases.hashicorp.com'
   - 'https://github.com/srinihashi/consul-argocd.git'
@@ -17,9 +16,9 @@ spec:
   - namespace: consul
     server: https://kubernetes.default.svc
     name: in-cluster
-#  - namespace: argocd
-#    server: https://kubernetes.default.svc
-#    name: in-cluster
+  - namespace: argocd
+    server: https://kubernetes.default.svc
+    name: in-cluster
 
   clusterResourceWhitelist:
   - group: ''
