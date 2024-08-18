@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hello
+  name: hello-world
   namespace: argocd
 spec:
   syncPolicy:
@@ -11,18 +11,19 @@ spec:
     syncOptions:
       - CreateNamespace=true
 
-  project: consul
+  project: hello-world
   sources:
-    # Deploy app hello-world Helm chart
-    - chart: 
-      repoURL: hello-world-ppony/hello-world
-      helm:
-        valueFiles: $values/argocd/apps/hello/hello.yaml
-    - repoURL: 'https://github.com/srinihashi/consul-argocd.git'
-      #targetRevision: argocd
+    - repoURL: 'https://github.com/srinihashi/argo-client-hello.git'
+      #targetRevision: main
       ref: values 
-      #path: argocd
-      #targetRevision: argocd
+      path: argocd
+    # Deploy app hello-world Helm chart
+    - chart: hello-world
+      repoURL: https://helm.sikalabs.io
+      targetRevision: 0.10.0
+      helm:
+        valueFiles: 
+          - $values/argocd/hello.yaml
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: consul
+    namespace: hello-world

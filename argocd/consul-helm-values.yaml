@@ -25,3 +25,10 @@ connectInject:
 
 meshGateway:
   enabled: false
+
+syncCatalog:
+  enabled: true
+  default: true
+  k8sAllowNamespaces: ['hello-world']
+  k8sDenyNamespaces: []
+
