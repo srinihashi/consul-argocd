@@ -30,8 +30,8 @@ meshGateway:
   enabled: false
 
 syncCatalog:
-  enabled: true
-  default: true
+  enabled: false
+  default: false
   k8sAllowNamespaces: ['hello-world']
   k8sDenyNamespaces: []
 
