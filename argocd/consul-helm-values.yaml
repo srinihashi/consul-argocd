@@ -21,7 +21,8 @@ server:
   updatePartition: 0
 
 connectInject:
-  enabled: false
+  enabled: true
+  #default: true
 
 meshGateway:
   enabled: false
