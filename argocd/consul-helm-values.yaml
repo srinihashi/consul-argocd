@@ -22,7 +22,9 @@ server:
 
 connectInject:
   enabled: true
-  #default: true
+  default: true
+  transparentProxy:
+    defaultEnabled: true
 
 meshGateway:
   enabled: false
